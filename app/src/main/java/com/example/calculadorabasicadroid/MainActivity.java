@@ -14,24 +14,30 @@ import static android.content.ContentValues.TAG;
 
 public class MainActivity extends AppCompatActivity implements ImageButton.OnClickListener {
     ImageButton bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt0, btIgual, btMas, btMenos, btPor, btEntre, btC;
-    EditText edt1;
+    EditText edt1, edt2;
     String[] cifra = new String[10];
     String buffer = "";
 
     int sumar = 0;
     int restar = 0;
-    int multiplica=0;
-    int divide=0;
+    int multiplica = 0;
+    int divide = 0;
+    int contador = 0;
 
     boolean suma = false;
     boolean resta = false;
     boolean multiplicar = false;
     boolean dividir = false;
+    private int resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        cifra[0] = "";
+        cifra[1] = "";
+        resultado = 0;
 
 
         bt1 = (ImageButton) findViewById(R.id.imageButton);
@@ -51,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
         btEntre = (ImageButton) findViewById(R.id.imageButton11);
         btC = (ImageButton) findViewById(R.id.botonC);
         edt1 = (EditText) findViewById(R.id.display);
+        edt2 = (EditText) findViewById(R.id.display);
 
         bt1.setOnClickListener(this);
         bt2.setOnClickListener(this);
@@ -80,47 +87,60 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
             case R.id.imageButton:
                 String uno = "1";
                 buffer = buffer + uno;
+                edt1.setText(buffer);
                 break;
             case R.id.imageButton2:
                 String dos = "2";
                 buffer = buffer + dos;
+                edt1.setText(buffer);
                 break;
             case R.id.imageButton3:
                 String tres = "3";
                 buffer = buffer + tres;
+                edt1.setText(buffer);
                 break;
             case R.id.imageButton4:
                 String cuatro = "4";
                 buffer = buffer + cuatro;
+                edt1.setText(buffer);
                 break;
             case R.id.imageButton5:
                 String cinco = "5";
                 buffer = buffer + cinco;
+                edt1.setText(buffer);
                 break;
             case R.id.imageButton6:
                 String seis = "6";
                 buffer = buffer + seis;
+                edt1.setText(buffer);
                 break;
             case R.id.imageButton7:
                 String siete = "7";
                 buffer = buffer + siete;
+                edt1.setText(buffer);
                 break;
             case R.id.imageButton8:
                 String ocho = "8";
                 buffer = buffer + ocho;
+                edt1.setText(buffer);
                 break;
             case R.id.imageButton9:
                 String nueve = "9";
                 buffer = buffer + nueve;
+                edt1.setText(buffer);
                 break;
             case R.id.imageButton0:
                 String cero = "0";
                 buffer = buffer + cero;
+                edt1.setText(buffer);
                 break;
             case R.id.imageButton13:// suma
-                cifra[0] = buffer;
-                Log.i("Primera cifra: ", cifra[0]);
+
+                cifra[contador] = buffer;
+                Log.i("cifra 1", cifra[contador]);
+                edt1.setText("");
                 buffer = "";
+                contador++;
                 suma = true;
                 break;
             case R.id.imageButton12:// resta
@@ -138,51 +158,92 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
             case R.id.imageButton11:// dividir
                 cifra[0] = buffer;
                 Log.i("Primera cifra: ", cifra[0]);
-                buffer="";
+                buffer = "";
                 dividir = true;
+                break;
+            case R.id.botonC:
+                buffer = "";
+                sumar = 0;
+                restar = 0;
+                multiplica = 0;
+                divide = 0;
+                cifra[0] = "";
+                cifra[1] = "";
+                edt1.setText("");
+                edt2.setText("");
+                resultado = 0;
+                contador = 0;
                 break;
             case R.id.imageButton15: // igual
 
+
                 if (suma) {
-                    cifra[1] = buffer;
-                    Log.i("Segunda cifra: ", cifra[1]);
-                    sumar = Integer.parseInt(cifra[0]) + Integer.parseInt(cifra[1]);
-                    edt1.setText(String.valueOf(sumar));
-                    buffer = "";
+                    cifra[contador] = buffer;
+                    edt1.setText("");
+
+                    if (resultado == 0) {
+                        resultado = Integer.parseInt(cifra[contador - 1]) + Integer.parseInt(cifra[contador]);
+                    } else {
+                        resultado = Integer.parseInt(cifra[contador]) + resultado;
+                    }
+
+                    edt1.setText(String.valueOf(resultado));
                     suma = false;
                 }
 
 
                 if (resta) {
-                    cifra[1] = buffer;
-                    Log.i("Segunda cifra: ", cifra[1]);
-                    restar = Integer.parseInt(cifra[0]) - Integer.parseInt(cifra[1]);
-                    edt1.setText(String.valueOf(restar));
-                    buffer = "";
+                    cifra[contador] = buffer;
+                    edt1.setText("");
+
+                    if (resultado == 0) {
+                        resultado = Integer.parseInt(cifra[contador - 1]) - Integer.parseInt(cifra[contador]);
+                    } else {
+                        resultado = resultado - Integer.parseInt(cifra[contador]);
+                    }
+                    edt1.setText(String.valueOf(resultado));
                     resta = false;
                 }
 
                 if (multiplicar) {
-                    cifra[1] = buffer;
-                    Log.i("Segunda cifra: ", cifra[1]);
-                    multiplica = Integer.parseInt(cifra[0]) * Integer.parseInt(cifra[1]);
-                    edt1.setText(String.valueOf(multiplica));
-                    buffer = "";
+                    cifra[contador] = buffer;
+                    edt1.setText("");
+
+                    if (resultado == 0) {
+                        resultado = Integer.parseInt(cifra[contador - 1]) * Integer.parseInt(cifra[contador]);
+                    } else {
+                        resultado = resultado * Integer.parseInt(cifra[contador]);
+                    }
+                    edt1.setText(String.valueOf(resultado));
                     multiplicar = false;
                 }
 
                 if (dividir) {
-                    cifra[1] = buffer;
-                    Log.i("Segunda cifra: ", cifra[1]);
-                    try {
-                        divide = Integer.parseInt(cifra[0]) / Integer.parseInt(cifra[1]);
-                        edt1.setText(String.valueOf(divide));
-                        buffer = "";
-                        dividir = false;
-                    }catch (Exception e){
-                        Log.e("Error numérico: ","no se puede dividir por cero");
-                        edt1.setText("Not zero division");
+                    cifra[contador] = buffer;
+                    edt1.setText("");
+                    if(resultado==0){
+                        try {
+                            resultado = Integer.parseInt(cifra[contador-1]) / Integer.parseInt(cifra[contador]);
+                            edt1.setText(String.valueOf(resultado));
+                            buffer = "";
+                            dividir = false;
+                        } catch (Exception e) {
+                            Log.e("Error numérico: ", "no se puede dividir por cero");
+                            edt1.setText("Not zero division");
+                        }
+
+                    }else{
+                        try {
+                            resultado = resultado / Integer.parseInt(cifra[contador]);
+                            edt1.setText(String.valueOf(resultado));
+                            buffer = "";
+                            dividir = false;
+                        } catch (Exception e) {
+                            Log.e("Error numérico: ", "no se puede dividir por cero");
+                            edt1.setText("Not zero division");
+                        }
                     }
+
 
                 }
 
