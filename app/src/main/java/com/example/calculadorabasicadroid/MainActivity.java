@@ -2,19 +2,15 @@ package com.example.calculadorabasicadroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
-
-import static android.content.ContentValues.TAG;
 
 public class MainActivity extends AppCompatActivity implements ImageButton.OnClickListener {
     ImageButton bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt0, btIgual, btMas, btMenos, btPor, btEntre, btC;
-    EditText edt1, edt2;
+    EditText edt1;
     String[] cifra = new String[10];
     String buffer = "";
 
@@ -50,14 +46,13 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
         bt8 = (ImageButton) findViewById(R.id.imageButton8);
         bt9 = (ImageButton) findViewById(R.id.imageButton9);
         bt0 = (ImageButton) findViewById(R.id.imageButton0);
-        btIgual = (ImageButton) findViewById(R.id.imageButton15);
+        btIgual = (ImageButton) findViewById(R.id.btIgual);
         btMas = (ImageButton) findViewById(R.id.imageButton13);
         btMenos = (ImageButton) findViewById(R.id.imageButton12);
         btPor = (ImageButton) findViewById(R.id.imageButton14);
         btEntre = (ImageButton) findViewById(R.id.imageButton11);
         btC = (ImageButton) findViewById(R.id.botonC);
         edt1 = (EditText) findViewById(R.id.display);
-        edt2 = (EditText) findViewById(R.id.display);
 
         bt1.setOnClickListener(this);
         bt2.setOnClickListener(this);
@@ -137,28 +132,30 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
             case R.id.imageButton13:// suma
 
                 cifra[contador] = buffer;
-                Log.i("cifra 1", cifra[contador]);
                 edt1.setText("");
                 buffer = "";
                 contador++;
                 suma = true;
                 break;
             case R.id.imageButton12:// resta
-                cifra[0] = buffer;
-                Log.i("Primera cifra: ", cifra[0]);
+                cifra[contador] = buffer;
+                edt1.setText("");
                 buffer = "";
+                contador++;
                 resta = true;
                 break;
             case R.id.imageButton14:// multiplicar
-                cifra[0] = buffer;
-                Log.i("Primera cifra: ", cifra[0]);
+                cifra[contador] = buffer;
+                edt1.setText("");
                 buffer = "";
+                contador++;
                 multiplicar = true;
                 break;
             case R.id.imageButton11:// dividir
-                cifra[0] = buffer;
-                Log.i("Primera cifra: ", cifra[0]);
+                cifra[contador] = buffer;
+                edt1.setText("");
                 buffer = "";
+                contador++;
                 dividir = true;
                 break;
             case R.id.botonC:
@@ -170,11 +167,10 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
                 cifra[0] = "";
                 cifra[1] = "";
                 edt1.setText("");
-                edt2.setText("");
                 resultado = 0;
                 contador = 0;
                 break;
-            case R.id.imageButton15: // igual
+            case R.id.btIgual: // igual
 
 
                 if (suma) {
