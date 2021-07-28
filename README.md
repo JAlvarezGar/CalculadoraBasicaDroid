@@ -1,6 +1,6 @@
 # Calculadora con Android studio 
 
-```
+```javascript
                 if (suma) {
                     cifra[contador] = buffer;
                     edt1.setText("");
