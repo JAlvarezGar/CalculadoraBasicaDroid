@@ -10,10 +10,35 @@
     tools:context=".MainActivity">
 
     <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_toEndOf="@+id/imageButton2"
+        android:background="@drawable/tres"
+        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/display"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ocho"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButton7"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton5"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/uno"
         android:visibility="visible"
@@ -24,35 +49,58 @@
         app:layout_constraintTop_toBottomOf="@+id/display"
         tools:ignore="MissingConstraints" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/dos"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/display"
-        tools:ignore="MissingConstraints" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="38dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/logo"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton10" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="38dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/github" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/imageButton0"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/seis"
-        app:layout_constraintStart_toEndOf="@+id/imageButton5"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/cero"
+        app:layout_constraintEnd_toStartOf="@+id/btIgual"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButton10"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton8"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:autoLink="web"
+        android:text="https://github.com/JAlvarezGar"
+        android:textColorLink="#e74c3c"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <ImageButton
         android:id="@+id/imageButton5"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/cinco"
         app:layout_constraintEnd_toStartOf="@+id/imageButton6"
@@ -62,10 +110,22 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/seis"
+        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/cuatro"
         app:layout_constraintEnd_toStartOf="@+id/imageButton5"
@@ -76,29 +136,27 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/imageButton2"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/siete"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton8"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/dos"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/display"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/btIgual"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/nueve"
-        app:layout_constraintStart_toEndOf="@+id/imageButton8"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginTop="4dp"
+        android:background="@drawable/igual"
+        app:layout_constraintStart_toEndOf="@+id/imageButton0"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton9" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -106,7 +164,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageButton0"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -160,52 +218,26 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/imageButton7"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/ocho"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton9"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton7"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
-        android:layout_toEndOf="@+id/imageButton2"
-        android:background="@drawable/tres"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/display"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/display"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/cardview_dark_background"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        android:textAlignment="textEnd"
-        android:textColor="?android:attr/colorFocusedHighlight"
-        android:textSize="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/siete"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/imageButton10"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/pun"
         app:layout_constraintEnd_toStartOf="@+id/imageButton0"
@@ -215,26 +247,34 @@
         app:layout_constraintTop_toBottomOf="@+id/imageButton7" />
 
     <ImageButton
-        android:id="@+id/btIgual"
+        android:id="@+id/imageButton9"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/igual"
-        app:layout_constraintStart_toEndOf="@+id/imageButton0"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton9" />
-
-    <ImageButton
-        android:id="@+id/imageButton0"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/cero"
-        app:layout_constraintEnd_toStartOf="@+id/btIgual"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton10"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton8"
+        android:background="@drawable/nueve"
+        app:layout_constraintStart_toEndOf="@+id/imageButton8"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
         tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/display"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textAlignment="textEnd"
+        android:textColor="?android:attr/colorFocusedHighlight"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

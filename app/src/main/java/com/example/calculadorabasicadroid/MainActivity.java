@@ -9,22 +9,22 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity implements ImageButton.OnClickListener {
-    ImageButton bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt0, btIgual, btMas, btMenos, btPor, btEntre, btC;
+    ImageButton bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt0, btIgual, btMas, btMenos, btPor, btEntre, btC,btPunto;
     EditText edt1;
     String[] cifra = new String[10];
     String buffer = "";
 
-    int sumar = 0;
-    int restar = 0;
-    int multiplica = 0;
-    int divide = 0;
+    double sumar = 0;
+    double restar = 0;
+    double multiplica = 0;
+    double divide = 0;
     int contador = 0;
 
     boolean suma = false;
     boolean resta = false;
     boolean multiplicar = false;
     boolean dividir = false;
-    private int resultado;
+    private double resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
         btMenos = (ImageButton) findViewById(R.id.imageButton12);
         btPor = (ImageButton) findViewById(R.id.imageButton14);
         btEntre = (ImageButton) findViewById(R.id.imageButton11);
+        btPunto= (ImageButton) findViewById(R.id.imageButton10) ;
         btC = (ImageButton) findViewById(R.id.botonC);
         edt1 = (EditText) findViewById(R.id.display);
 
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
         bt8.setOnClickListener(this);
         bt9.setOnClickListener(this);
         bt0.setOnClickListener(this);
+        btPunto.setOnClickListener(this);
         btIgual.setOnClickListener(this);
         btMas.setOnClickListener(this);
         btMenos.setOnClickListener(this);
@@ -129,6 +131,11 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
                 buffer = buffer + cero;
                 edt1.setText(buffer);
                 break;
+            case R.id.imageButton10:
+                String punto = ".";
+                buffer = buffer + punto;
+                edt1.setText(buffer);
+                break;
             case R.id.imageButton13:// suma
 
                 cifra[contador] = buffer;
@@ -178,9 +185,9 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
                     edt1.setText("");
 
                     if (resultado == 0) {
-                        resultado = Integer.parseInt(cifra[contador - 1]) + Integer.parseInt(cifra[contador]);
+                        resultado = Double.parseDouble(cifra[contador - 1]) + Double.parseDouble(cifra[contador]);
                     } else {
-                        resultado = Integer.parseInt(cifra[contador]) + resultado;
+                        resultado = Double.parseDouble(cifra[contador]) + resultado;
                     }
 
                     edt1.setText(String.valueOf(resultado));
@@ -193,9 +200,9 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
                     edt1.setText("");
 
                     if (resultado == 0) {
-                        resultado = Integer.parseInt(cifra[contador - 1]) - Integer.parseInt(cifra[contador]);
+                        resultado = Double.parseDouble(cifra[contador - 1]) - Double.parseDouble(cifra[contador]);
                     } else {
-                        resultado = resultado - Integer.parseInt(cifra[contador]);
+                        resultado = resultado - Double.parseDouble(cifra[contador]);
                     }
                     edt1.setText(String.valueOf(resultado));
                     resta = false;
@@ -206,9 +213,9 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
                     edt1.setText("");
 
                     if (resultado == 0) {
-                        resultado = Integer.parseInt(cifra[contador - 1]) * Integer.parseInt(cifra[contador]);
+                        resultado = Double.parseDouble(cifra[contador - 1]) * Double.parseDouble(cifra[contador]);
                     } else {
-                        resultado = resultado * Integer.parseInt(cifra[contador]);
+                        resultado = resultado * Double.parseDouble(cifra[contador]);
                     }
                     edt1.setText(String.valueOf(resultado));
                     multiplicar = false;
@@ -219,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
                     edt1.setText("");
                     if(resultado==0){
                         try {
-                            resultado = Integer.parseInt(cifra[contador-1]) / Integer.parseInt(cifra[contador]);
+                            resultado = Double.parseDouble(cifra[contador-1]) / Double.parseDouble(cifra[contador]);
                             edt1.setText(String.valueOf(resultado));
                             buffer = "";
                             dividir = false;
@@ -230,7 +237,7 @@ public class MainActivity extends AppCompatActivity implements ImageButton.OnCli
 
                     }else{
                         try {
-                            resultado = resultado / Integer.parseInt(cifra[contador]);
+                            resultado = resultado / Double.parseDouble(cifra[contador]);
                             edt1.setText(String.valueOf(resultado));
                             buffer = "";
                             dividir = false;
